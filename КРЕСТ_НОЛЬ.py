@@ -32,6 +32,7 @@ field_of_play = [['_', '_', '_'],
 
 
 def show_field():
+    """Выводит игровое поле с координатами"""
     print(' ', '1', '2', '3')
 
     # отображаю игровое поле
@@ -57,11 +58,24 @@ computer_char = 'O' if user_char == "X" else "X"
 
 print(f"Компьютер играет за {computer_char}")
 
-
-
-
+corret_vertical_coordinats = {"a": 0, "b": 1, "c": 2}
 while True:
     show_field()
+
+    print(f"Игрок со знаком {user_char} ВАШ ХОД!!!")
+    y = input("Введите номер строки (a,b,c) $>")
+    # if y == "a":
+    #     y = 0
+    # elif y == "b":
+    #     y = 1
+    # elif y == "c":
+    #     y = 2
+
+    x = int(input("Введите номер стобца (1,2,3) $>"))
+
+    field_of_play[corret_vertical_coordinats[y]][x - 1] = user_char
+    show_field()
+
     # if is_draw(field_of_play) print(ничья) break
     # x,y = get_user_position(field_of_play)
     # field_of_play[y][x] = user_char
